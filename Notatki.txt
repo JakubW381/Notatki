@@ -1,0 +1,211 @@
+							Podstawy Javy						
+										--1--
+
+-(Typy proste w Java, a typy proste w C++)-
+
+Java: byte,short,int,long,float,double,char,boolean
+
+C++:char,short,int,long,float,double,bool oraz modyfikatory signed i unsigned
+
+Rozmiar typów prostych w Java zawsze ma stały rozmiar(np. int ma zawszy 32 bity).
+W C++ rozmiar typów prostych może różnić się co do kompilatora lub platformy
+
+Typy w C++ oraz Java są przechowywane na stosie.
+
+Java w odróżnieniu do C++ automatycznie zarząda pamięcią bez ingerencji programisty, natomiast C++ wymaga manualnej alokacji pamięci co daje większą kontrolę, ale wiąże się także z większym ryzykiem błędu.
+
+
+-(Obiekty w Java, a typy proste w C++)-
+
+Tworzenie obiektów w Java odbywa się za pomocą słowa kluczowego 'new' na stercie, w C++ obiekty mogą być tworzona zarówno na stercie jak i na stosie.
+
+-Przechowywanie w Java
+Zmienne obiektowe przechowują referencje do obiektu na stercie.
+
+-Przechowywanie w C++
+Zmienne mogą przechowywać same obiekty jeśli są tworzone na stosie lub wskaźnik do obiektu na stercie.
+
+-Zarządzanie pamięcią w Java
+Garbage Collector odpowiada za automatyczne zarządanie pamięcią, zwalniając ją gdy obiekt nie jest już dostępny.
+
+-Zarządzanie pamięcią w C++
+Programista jest odpowiedzialny za zwalnianie pamięci za pomocą operatora delete.
+
+-Dziedziczenie w Java
+Wszystkie obiekty w Java dziedziczą po bazowej klasie 'Object'
+
+-Dziedziczenie w C++
+Obiekty mogą dziedziczyć po innych klasach, ale nie ma jednej wspólnej klasy odpowiadającej 'Object'.
+
+-(Referencje na obiekty w Java, a typy proste w C++)-
+
+W Java wszystkie zmienne obiektowe są referencjami do obiektów, C++ oferuje zarówno wskaźniki, jak i referencje obiektów.
+
+										--2--
+
+-(Czym jest klonowanie i kopiowanie obiektu?)-
+
+--Klonowanie
+Klonowanie obiektu to tworzenie nowego obiektu, który jest kopią oryginału.
+
+-Klonowanie Płytkie
+Tworzy nowy obiekt, który jest kopią oryginału, ale zawiera tylko powierzchowne kopie wartości.
+Jeśli obiekt zawiera referencje do innych obiektów, to referencje te są kopiowane, a nie obiekty, do których te obiekty prowadzą.
+Orginalny obiekt jak i płytka kopią wskazują na te samy obiekty referencyjne.
+
+-Klonowane głębokie
+Tworzy nowy obiekt, który jest dokładną kopią oryginału, w  tym wszystkich obiektów referencyjnych.
+Każdy obiekt, do którego prowadzi referencja, jest kopiowany.
+Nowy obiekt jest całkowicie niezależny od oryginału.
+
+--Kopiowanie
+Kopiowanie to proces tworzenia nowego obiektu, który ma te same wartości jak oryginał.
+
+-Kopiowanie płytkie
+Tworzy nowy obiekt, który ma te same wartości jak oryginał, ale zawiera tylko powierzchowne kopie referencyjne do innych obiektów.
+Obiekty nie są kopiowane tylko ich referencje.
+Nowy obiekt i oryginał dzielą re same obiekty referencyjne.
+
+-Kopiowanie głębokie
+Tworzy nowy obiekt, który ma te same wartości jak oryginał, w tym wszystkie obiekty referencyjne.
+Każdy obiekt, do którego prowadzi referencja, jest również kopiowany.
+Nowy obiekt jest całkowicie niezależny od oryginału.
+
+--Różnice między Klonowaniem a Kopiowaniem
+
+Klonowanie obiektu róznią od kopiowania instancje i definicje.
+Można kopiować definicje obiektów oraz instancje obiektów, ale klonować mozna tylko instancje obiektów.
+
+-Kopiowanie obiektu:
+Kopiowanie obiektu tworzy nową instancję obiektu, która jest niezależna od oryginału.
+W przypadku kopiowania obiektu zmiany w jednym obiekcie nie wpływają na drugi.
+Możemy kopiować zarówno definicje obiektów (np. klasy) jak i ich instancje.
+
+-Klonowanie obiektu:
+Klonowanie obiektu to proces tworzenia dokładnej kopii istniejącej instancji obiektu.
+Klonowanie zachowuje stan obiektu, włącznie z jego właściwościami i stanem wewnętrznym.
+Klonowanie jest przydatne, gdy chcemy stworzyć nową instancję obiektu, która jest podobna do istniejącej, ale niezależna od niej.
+
+										--3--
+
+-(Omów składnię i działanie konstruktora. Przedstaw przykład wywołania w ramach konstruktora, konstruktora tej samej klasy oraz klasy nadrzędnej)-
+
+Konstruktor to specjalna metoda klasy która jest wywoływana w momencie tworzenia nowego obiektu tej klasy. Służy do inicjalizacjy nowo powstałego obiektu. Konstruktor ma taką samą nazwę jak klasa obiektu i nie posiada typu zwracalnego.
+
+Konstruktor może przyjmować argumenty które są wykorzystywane do przypisywania wartości do zmiennych obiektu.
+W Java jeżeli klasa obiektu dziedziczy po innej klasie, aby użyć konstruktora klasy nadrzędnej należy użyć słowa kluczowego 'super()'.
+
+
+										--4--
+
+-(Wymień i omów wszystkie sposoby użycia słowa kluczowego final)-
+
+-Użycie final ze zmiennymi
+Użycie final ze zmiennymi oznacza, że wartość zmiennej nie może być zmieniona po przypisaniu.
+Zmienna musi być zainicjalizowana w momencie deklaracji albo w konstruktorze.
+
+-Użycie final z metodami
+Użycie final z metodami oznacza że metoda nie może być nadpisana pzrez klasy dziedziczące.
+
+-Użycie final z klasami
+Użycie final z klasami oznacza, że klasa nie może być dziedziczona.
+
+-Użycie final z parametrami metod
+Użycie final z parametrami metod oznacza, że parametr nie może być zmieniony w ciele metody.
+
+
+							Programowanie obiektowe
+
+										--5--
+										
+-(Omów porównawczo dziedziczenie klas i implementację interfejsów)-
+
+-Dziedziczenie klas:
+
+Pozwala na dziedziczenie implementacji metod.
+
+Ogranicza klasę do dziedziczenia tylko po jednej klasie.
+
+Umożliwia współdzielenie kodu, ale może prowadzić do skomplikowanych hierarchii.
+
+-Implementacja interfejsów:
+
+Deklaruje zestaw metod bez implementacji (z wyjątkiem metod domyślnych i statycznych).
+
+Pozwala na implementację wielu interfejsów przez jedną klasę, co daje większą elastyczność.
+
+Promuje luźne powiązania i większą wymienialność komponentów.
+
+										--6--
+										
+-(Omów porównawczo klasy abstrakcyjne i interfejsy)-
+
+-Podobieństwa
+Zarówno klasy abstrakcyjne, jak i interfejsy mogą zawierać metody, które nie mają implementacji (metody abstrakcyjne).
+Ani klasy abstrakcyjnej ani interfejsu nie można bezpośrednio instancjonować.
+Oba mechanizmy można dziedziczyć, ale w innych formach.
+
+-Różnice
+
+I)
+	Klasa Abstrakcyjna: Może zawierać zarówno metody abstrakcyjne, jak i nieabstrakcyjne oraz pola instancji. Może mieć konstruktory.
+
+	Interfejs: Zawiera tylko metody abstrakcyjne (z wyjątkiem metod domyślnych i statycznych) oraz stałe (public static final). Nie może mieć konstruktorów.
+
+II)
+	Klasa Abstrakcyjna: Klasa może dziedziczyć tylko po jednej klasie abstrakcyjnej.
+
+	Interfejs: Klasa może implementować wiele interfejsów, a interfejs może dziedziczyć po wielu interfejsach.
+
+III)
+	Klasa Abstrakcyjna: Umożliwia bardziej konkretne dziedziczenie i współdzielenie kodu.
+
+	Interfejs: Promuje luźne powiązania i większą elastyczność w projektowaniu systemów.
+
+										--7--
+										
+-(Omów polimorfizm)-
+
+W Javie polimorfizm jest realizowany głównie przez dziedziczenie klasy i implementację interfejsów.
+
+-Polimorfizm w czasie kompilacji (Statyczny)
+Jest osiągany przez przeciążanie metod (method overloading).
+Polega na tworzeniu wielu metod o tej samej nazwie, ale z różnymi listami parametrów w jednej klasie.
+
+-Polimorfizm w czasie wykonania (Dynamiczny)
+Jest osiągany przez przesłanianie metod (method overriding).
+Pozwala na wywoływanie metod w klasach podrzędnych przez referencje do klasy nadrzędnej.
+
+										--7--
+										
+-(Omów enkapsulację. Przedstaw modyfikatory dostępu w kontekście enkapsulacji. Uwzględnij zagnieżdżenie klas)-
+
+--Enkapsulacja (inaczej hermetyzacja) to jedna z fundamentalnych zasad programowania obiektowego, która polega na ukrywaniu wewnętrznych szczegółów implementacji klasy i ujawnianiu tylko tych części, które są niezbędne do korzystania z klasy. Enkapsulacja odpowiada między innymi za ochronę danych i redukcję zależności.
+
+--Modyfikatory dostępu
+
+-public
+	Widoczne dla wszystkich klas we wszystkich pakietach
+-private
+	Widoczne tylko w obrębie tej samej klasy
+-protected
+	Widoczne w obrębie tej samej klasy, klas podrzędnych (nawet w innych pakietach), oraz w obrębie tego samego pakietu
+-default (pakietowy)
+	Widoczne tylko w obrębie tego samego pakietu
+	Nie ma specjalnego słowa kluczowego, jest modyfikatorem domyślnym
+
+--Zagnieżdżenie klas
+
+-klasy wewnętrzne
+	Mają dostęp do wszystkich pól i metod klasy zewnętrznej, w tym prywatnych.
+-klasy statyczne
+	Nie mają bezpośredniego dostępu do pól i metod instancji klasy zewnętrznej. Mogą jednak mieć dostęp do statycznych pól i metod klasy zewnętrznej
+-klasy lokalne
+	Zdefiniowane wewnątrz metody i mają dostęp do zmiennych lokalnych tej metody, jeśli są one finalne lub efektywnie finalne.
+-klasy anonimowe
+	Tworezone bez nazwy, zazwyczaj do natychmiastowego użycia w jednym miejscu.(Runnable)
+
+										--8--
+
+
+
